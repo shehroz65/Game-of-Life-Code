@@ -1,0 +1,22 @@
+We first declare the 2d Grid with a row and size. And a temporary array with the same size.
+
+Then we define a function for writing on screen AND the file. Function will basically have 2 nested for loops to go to the row and column number, that will check if the cell at that particular position is alive, then it will print 0 on the screen and the file. Otherwise if the cell is dead then it will print a space.
+
+Another function (ZeroGrid) is defined to initialize the Grid and Temp array elements to 0 
+
+Then a function to read from file the num of gens and cells.If it fails to read (according to the path given by user) then it will print an error. We also create 2 arrays (unInitx for X coordinates, unInity for Y coordinates).In that same function, we call the ZeroGrid function first. Then a loop is used to intialize the 2 variables with the X and Y coordinates respectively from the file.
+
+Then another loop used to use those 2 arrays to enter the values in the Grid array (for the alive cells).
+
+Another function is made to count neighbors.
+
+In the main function, we use the argc (argument count) and argv (argument vector), we use them to make the user enter the input and output path for the files.
+We then define some variables for the min and max X and Y coordinates (these 4 variables are used for the efficiency and optimisation of the program, so that the program only starts from the min x and y coordinate and goes on further, so it doesn't check the whole grid). 
+A loop is then used that will repeat till the num of gens. Inside, there are 2 nested loops that go from minY to maxY and minX to maxX for efficiency. There the rules of the game are applied, and the changes are made to the temp array. The min and max variables are given new values again before the next gen starts.
+Another loop is written afterwards that basically transfers the values from the temp array to Grid array, and the min and max variables are changed accordingly too. I've written +1, -2, -1, +1 to allow the variables to go a bit beyond the coordinates.
+And then basically the coordinates are printed on the screen and in the file using the WriteGrid function.
+
+The file is then closed, and the Dynamic Uninitx/y arrays are deleted.
+
+
+
